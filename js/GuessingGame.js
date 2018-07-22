@@ -44,13 +44,13 @@ Game.prototype.playersGuessSubmission = function(guess) {
   return this.checkGuess(guess);
 }
 
-Game.prototype.checkGuess = function(guess) {
-  if (guess === this.winningNumber) {
-    return `You Win!`;
-  }
-  if (this.pastGuesses.includes(guess)) {
-    return 'You have already guessed that number.';
-  }
+// Game.prototype.checkGuess = function(guess) {
+//   if (guess === this.winningNumber) {
+//     return `You Win!`;
+//   }
+//   if (this.pastGuesses.includes(guess)) {
+//     return 'You have already guessed that number.';
+//   }
 
   this.pastGuesses.push(guess);
   if (this.pastGuesses.length === 5) {
@@ -81,16 +81,16 @@ function newGame() {
 
 
 $(document).ready(function() {
-  $('#submit').click(function() {
+  $('#submit').click(function(e) {
     console.log('Submit button has been clicked')
   })
 })
 
 function makeAGuess(game) {
-    let guess = $('#player-input').val();
+    var guess = $('#player-input').val();
     $('#player-input').val("");
-    let output = game.playersGuessSubmission(parseInt(guess,10));
-    console.log(output);
+    var output = game.playersGuessSubmission(parseInt(guess,10));
+    $('#title').text(output);
 }
 
 $(document).ready(function() {
@@ -142,7 +142,7 @@ Game.prototype.checkGuess = function() {
 }
 
 $('#hint').click(function() {
-    var hints = game.provideHint();
+    let hints = game.provideHint();
     $('#title').text('The winning number is '+hints[0]+', '+hints[1]+', or '+hints[2]);
 });
 
