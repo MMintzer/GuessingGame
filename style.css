@@ -14,11 +14,14 @@ img {
 }
 
 #footer {
-  width: 100%;
   border-top: solid 2px black;
-  background-color: white;
-  position: fixed;
-  bottom: 0;
+  padding-top: 2rem;
+  position: relative;
+
+}
+
+#main {
+  padding-bottom: 5rem;
 }
 
 #player-input {
